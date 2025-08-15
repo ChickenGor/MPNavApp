@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  />
+  <title>Color QR Tracker (Prototype)</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- OpenCV.js -->
+  <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
+  <!-- jsQR -->
+  <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+</head>
+<body>
+  <header>
+    <h1>QR Navigator</h1>
+  </header>
+
+  <main>
+    <div class="stage">
+      <video id="video" autoplay playsinline muted></video>
+      <!-- visible canvas that shows the current frame + tracking box -->
+      <canvas id="display"></canvas>
+      <!-- hidden processing canvas -->
+      <canvas id="process" hidden></canvas>
+      <div id="overlayText">Please choose QR Color to scan</div>
+    </div>
+
+<div class="color-slider">
+  <input type="radio" name="color" id="color-red" value="red" checked>
+  <label for="color-red" class="red">Red</label>
+
+  <input type="radio" name="color" id="color-green" value="green">
+  <label for="color-green" class="green">Green</label>
+
+  <input type="radio" name="color" id="color-blue" value="blue">
+  <label for="color-blue" class="blue">Blue</label>
+
+</div class="start-stop">
+      <button id="btnStart">Start</button>
+      <button id="btnStop" class="secondary">Stop</button>
+    </div>
+
+    <div id="status" class="status">Initializing…</div>
+    <div id="result" class="result" aria-live="polite"></div>
+  </main>
+
+  <script src="qr-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
