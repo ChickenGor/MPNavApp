@@ -105,7 +105,10 @@ function tryDecode() {
       if (!qrInfo) {
         for (const color in qrData) {
           if (qrData[color][decoded]) {
-            qrInfo = { ...qrData[color][decoded], mismatchedColor: true, expectedColor: color };
+            qrInfo = { 
+                ...qrData[color][decoded], 
+                mismatchedColor: true, 
+                expectedColor: color };
             break;
           }
         }
